@@ -28,7 +28,7 @@ jobs:
           pip install flake8
 
       - name: Run tests
-        run: flake8 --ignore=E501,F401 .
+        run: flake8 --ignore=E501,F401 --exclude=venv .
 
       - name: Docker Credentials
         uses: docker/login-action@v2
