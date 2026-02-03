@@ -1,17 +1,62 @@
 body {
-    font-family: Arial, sans-serif;
+
+    font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
     color: #333;
     text-align: center;
     padding: 50px;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    transition: background-image 0.5s ease-in-out;
+    min-height: 100vh;
+}
+
+.default {
+    background-image: url('images/clouds.png');
+    /* Fallback */
+}
+
+.clear {
+    background-image: url('images/clear.png');
+    color: #fff;
+}
+
+.clouds {
+    background-image: url('images/clouds.png');
+}
+
+.rain {
+    background-image: url('images/rain.png');
+    color: #fff;
+}
+
+.snow {
+    background-image: url('images/snow.png');
+}
+
+.thunderstorm {
+    background-image: url('images/thunderstorm.png');
+    color: #fff;
+}
+
+.mist,
+.fog,
+.haze {
+    background-image: url('images/mist.png');
 }
 
 .container {
-    background: white;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     display: inline-block;
+    max-width: 400px;
+    width: 90%;
 }
 
 input[type="text"] {
