@@ -45,3 +45,15 @@ jobs:
 
       - name: Push Docker Image
         run: docker push cloudmncetin/demo-app:${{ env.VERSION }}
+
+      - name: Update k8s Manifests
+        run: |
+          sed -i 's/image: cloudmncetin/demo-app:*/image: cloudmncetin/demo-app:${{ env.VERSION }}/ deploy/deployment.yaml 
+
+      - name: Commit changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add deploy/deployment.yaml
+          git commit -m "Update image version to ${{ env.VERSION }}"
+          git push
